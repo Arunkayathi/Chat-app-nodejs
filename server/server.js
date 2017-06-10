@@ -2,6 +2,7 @@ const path=require('path');
 const express=require('express');
 const http=require('http');
 const socketIo=require('socket.io');
+var {generateMessage}=require('./utils/message');
 var port=process.env.PORT||3000;
 var app=express();
 var publicPath=path.join(__dirname,'../public');
@@ -12,23 +13,12 @@ var io=socketIo(server);
 
 io.on('connection',(socket)=>{
     console.log('new user is connected');
-    socket.emit('newMessage',{
-        from:'Admin',
-        text:'Welcome to chitchat with friends',
-        createdAt:new Date().getTime()
-    });
+    socket.emit('newMessage',generateMessage('Admin','Welcome to the chat App'));
 
-    socket.broadcast.emit('newMessage',{
-        from:'Admin',
-        text:'New user has joined',
-        createdAt:new Date().getTime()
-    });
-    socket.on('createMessage',(newMessage)=>{
-        io.emit('newMessage',{
-            from:newMessage.from,
-            text:newMessage.text,
-            createdAt:new Date().getTime()
-        });
+
+    socket.broadcast.emit('newMessage',generateMessage('Admin','new user has joined'));
+    socket.on('createMessage',(message)=>{
+        io.emit('newMessage',generateMessage(message.from,message.text));
     });
     socket.on('disconnect',()=>{
         console.log('user was disconnected');
