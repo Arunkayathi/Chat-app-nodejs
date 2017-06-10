@@ -12,7 +12,17 @@ var io=socketIo(server);
 
 io.on('connection',(socket)=>{
     console.log('new user is connected');
+    socket.emit('newMessage',{
+        from:'Admin',
+        text:'Welcome to chitchat with friends',
+        createdAt:new Date().getTime()
+    });
 
+    socket.broadcast.emit('newMessage',{
+        from:'Admin',
+        text:'New user has joined',
+        createdAt:new Date().getTime()
+    });
     socket.on('createMessage',(newMessage)=>{
         io.emit('newMessage',{
             from:newMessage.from,
