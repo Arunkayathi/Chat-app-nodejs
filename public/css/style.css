@@ -16,7 +16,7 @@ button:hover {
     padding: 0;
     font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    
 }
 
 li,
@@ -155,9 +155,6 @@ button:disabled {
     flex-grow: 1
 }
 
-.message {
-    padding: 10px
-}
 
 .message__title {
     display: flex;
@@ -172,7 +169,10 @@ button:disabled {
 .message__title span {
     color: #999
 }
-
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+}
 @media (max-width:600px) {
     * {
         font-size: 1rem
