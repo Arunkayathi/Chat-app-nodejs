@@ -5,6 +5,7 @@ class  Users{
     constructor (){
         this.usersList=[];
     }
+
     addUser( id, name, room){
         var user={id,name,room};
         this.usersList.push(user);
@@ -30,6 +31,10 @@ class  Users{
         });
         var namesArray=users.map((user)=>user.name);
         return namesArray;
+    }
+    isUsernameUnique(username){
+        let user=this.usersList.filter((user)=>user.name.toLowerCase()===username.toLowerCase());
+        return user.length;
     }
 }
 

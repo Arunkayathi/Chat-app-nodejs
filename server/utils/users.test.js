@@ -59,4 +59,9 @@ describe('Users',()=>{
 
         expect(userNames).toEqual(['Mike','madan','Kamraj']);
     });
+    it('Should check username is unique',()=>{
+        var user1="mike1";
+        var userLength=users.isUsernameUnique(user1);
+        expect(userLength).toBe(0);
+    });
 });

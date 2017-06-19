@@ -173,6 +173,11 @@ button:disabled {
     margin-top: 10px !important;
     margin-bottom: 5px !important;
 }
+
+.select-hide {
+  display: none;
+  visibility: hidden;
+}
 @media (max-width:600px) {
     * {
         font-size: 1rem
