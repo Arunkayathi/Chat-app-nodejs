@@ -27,11 +27,20 @@
         <input type="text" name="room" />
 
     </div>
+    <div class="form-field select-hide" id="select-room">
+        <label>Active Rooms</label>
+        <select id="roomsList">
+                        <option selected="selected">Select a room</option>
+        </select>
+    </div>
     <div class="form-field">
         <button>Join</button>
 
     </div>
 </form>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"> </script>
 </body>
 </html>
